@@ -740,7 +740,7 @@ use IEEE.std_logic_1164.all;
 -- entity
 entity fsmx is
     Port ( BUM1,BUM2 : in  std_logic;
-                 CLK : in   std_logic;
+                 CLK : in  std_logic;
             TOUT,CTA : out std_logic);
 end fsmx;
 -- architecture
@@ -755,7 +755,7 @@ begin
       end if;
    end process sync_p;
 
-   comb_p: process (CLK,BUM1,BUM2)
+   comb_p: process (PS,BUM1,BUM2)
    begin
       case PS is
 
