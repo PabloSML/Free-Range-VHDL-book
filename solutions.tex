@@ -1299,7 +1299,7 @@ END tff_behavioral;
 
 		% legend
 		\node[state with output]  (legend) [left =of helper.north] {State \nodepart{lower} Z1};
-		\node[below =.1cm of legend, align=left] (S) {input/outut(Z2)};
+		\node[below =.1cm of legend, align=left] (S) {input/output(Z2)};
 		\end{tikzpicture}
 	\end{minipage}
 
@@ -1360,7 +1360,7 @@ BEGIN
 		END CASE;
 	END PROCESS comb_process;
 
-		WITH PS SELECT
+	WITH PS SELECT
 	Y	<=	"01" WHEN ST01,
 			"10" WHEN ST10,
 			"11" WHEN ST11,
@@ -1380,14 +1380,14 @@ END Exercise_8_2_arc;
 		% FSM state changes/variables
 		\path[->]  (ST1)  edge [loop above] node (helper) {\NOTT{BUM1}/\NOTT{TOUT}} (ST1);
 		\path[->]  (ST1)  edge [bend left=18]    node {BUM1/TOUT} (ST2);
-		\path[->]  (ST2)  edge [bend left=18]    node {TOUT} (ST3);
+		\path[->]  (ST2)  edge [bend left=18]    node {\NOTT{TOUT}} (ST3);
 		\path[->]  (ST3)  edge [bend left=18]    node {\NOTT{BUM2}/\NOTT{TOUT}} (ST2);
 		\path[->]  (ST3)  edge [bend left=18]    node {BUM2/\NOTT{TOUT}} (ST1);
 
 		% legend
 		\node[state with output]  (legend) [left =of helper.north] {State \nodepart{lower} CTA};
-		\node[below =.1cm of legend, align=left] (S) {input/outut};
-		\node[below = .5cm of legend, align=left] (S) {output};
+		\node[below =.1cm of legend, align=left] (S) {input/output(TOUT)};
+		\node[below = .5cm of legend, align=left] (S) {output(TOUT)};
 		\end{tikzpicture}
 	\end{minipage}
 
