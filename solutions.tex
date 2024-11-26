@@ -898,7 +898,7 @@ BEGIN
 		END CASE;
 	END PROCESS devD;
 
-	devE:	PROCESS(Ein) IS
+	devE:	process(Ein) 
 	BEGIN
 		CASE (Ein) IS
 			WHEN "000" =>
@@ -912,7 +912,7 @@ END Exercise_5_2_case;
 
 ARCHITECTURE Exercise_5_2_if OF Exercise_5_2 IS
 BEGIN
-	logic_process:	PROCESS(A,B,D) IS
+	logic_process:	process(A,B,D) 
 	BEGIN
 		IF ( A = "11") THEN
 			E_out	<=	'1';
@@ -1012,7 +1012,7 @@ END mux8to1;
 
 ARCHITECTURE mux8to1_if OF mux8to1 IS
 BEGIN
-	logic_process:	PROCESS(ins,sel) IS
+	logic_process:	process(ins,sel) 
 	BEGIN
 		IF ( sel = "000" ) THEN
 			out1	<=	ins(0);
@@ -1038,7 +1038,7 @@ END mux8to1_if;
 
 ARCHITECTURE mux8to1_cases OF mux8to1 IS
 BEGIN
-	logic_process:	PROCESS(ins,sel) IS
+	logic_process:	process(ins,sel) 
 	BEGIN
 		CASE (sel) IS
 			WHEN "000" =>
@@ -1077,7 +1077,7 @@ END dec3to8_ActiveLow;
 
 ARCHITECTURE dec3to8_ActiveLow_if OF dec3to8_ActiveLow IS
 BEGIN
-	logic_process:	PROCESS(ins) IS
+	logic_process:	process(ins) 
 	BEGIN
 		IF ( ins = "000" ) THEN
 			outs	<=	"01111111";
@@ -1103,7 +1103,7 @@ END dec3to8_ActiveLow_if;
 
 ARCHITECTURE dec3to8_ActiveLow_cases OF dec3to8_ActiveLow IS
 BEGIN
-	logic_process:	PROCESS(ins) IS
+	logic_process:	process(ins) 
 	BEGIN
 		CASE (ins) IS
 			WHEN "000" =>
@@ -1147,7 +1147,7 @@ END dff_1;
 ARCHITECTURE dff_1_arc OF dff_1 IS
 	SIGNAL q_temp	:	STD_LOGIC;
 BEGIN
-	dff_process: PROCESS(CLK,S,R) IS
+	dff_process: process(CLK,S,R) 
 	BEGIN
 		IF (S = '0') THEN
 			q_temp <= '1';
@@ -1178,7 +1178,7 @@ END dff_3;
 ARCHITECTURE dff_3_arc OF dff_3 IS
 	SIGNAL q_temp	:	STD_LOGIC;
 BEGIN
-	dff_process: PROCESS(CLK,S,R) IS
+	dff_process: process(CLK,S,R) 
 	BEGIN
 		IF (RISING_EDGE(CLK)) THEN
 			IF (S = '0') THEN
@@ -1210,7 +1210,7 @@ END dff_4;
 ARCHITECTURE dff_4_arc OF dff_4 IS
 	SIGNAL q_temp	:	STD_LOGIC;
 BEGIN
-	dff_process: PROCESS(CLK,S,R) IS
+	dff_process: process(CLK,S,R) 
 	BEGIN
 		IF (S = '0' AND R = '0') THEN
 			q_temp <= NOT q_temp;
@@ -1241,7 +1241,7 @@ END tff;
 ARCHITECTURE tff_equation OF tff IS
 	SIGNAL q_temp	:	STD_LOGIC;
 BEGIN
-	tff_process:	PROCESS(S,R,CLK) IS
+	tff_process:	process(S,R,CLK) 
 	BEGIN
 		IF ( S = '0' ) THEN
 			q_temp	<=	'1';
@@ -1259,7 +1259,7 @@ END tff_equation;
 ARCHITECTURE tff_behavioral OF tff IS
 	SIGNAL q_temp	:	STD_LOGIC;
 BEGIN
-	tff_process:	PROCESS(S,R,CLK) IS
+	tff_process:	process(S,R,CLK) 
 	BEGIN
 		IF ( S = '0' ) THEN
 			q_temp	<=	'1';
@@ -1319,14 +1319,14 @@ ARCHITECTURE Exercise_8_2_arc OF Exercise_8_2 IS
 	TYPE STATE_TYPE IS (ST10,ST01,ST11);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	'0';
 		CASE (PS) IS
@@ -1406,14 +1406,14 @@ ARCHITECTURE Exercise_8_4_arc OF Exercise_8_4 IS
 	TYPE STATE_TYPE IS (ST00,ST01,ST10);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	"00";
 		CASE (PS) IS
@@ -1490,14 +1490,14 @@ ARCHITECTURE Exercise_8_6_arc OF Exercise_8_6 IS
 	TYPE STATE_TYPE IS (ST00,ST01,ST10,ST11);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	"00";
 		CASE (PS) IS
@@ -1596,14 +1596,14 @@ ARCHITECTURE Exercise_8_8_arc OF Exercise_8_8 IS
 	TYPE STATE_TYPE IS (ST000,ST001,ST010,ST011,ST100,ST101,ST110,ST111);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	"00";
 		CASE (PS) IS
@@ -1697,14 +1697,14 @@ ARCHITECTURE Exercise_8_9_arc OF Exercise_8_9 IS
 	TYPE STATE_TYPE IS (ST00,ST01,ST10,ST11);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	"00";
 		CASE (PS) IS
@@ -1774,14 +1774,14 @@ ARCHITECTURE Exercise_8_10_arc OF Exercise_8_10 IS
 	TYPE STATE_TYPE IS (ST001,ST010,ST100);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	'0';
 		CASE (PS) IS
@@ -1829,14 +1829,14 @@ ARCHITECTURE Exercise_8_10_arc OF Exercise_8_10 IS
 	TYPE STATE_TYPE IS (ST001,ST010,ST100);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	'0';
 		CASE (PS) IS
@@ -1894,14 +1894,14 @@ ARCHITECTURE Exercise_8_12_arc OF Exercise_8_12 IS
 	TYPE STATE_TYPE IS (ST00,ST01,ST11);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	"00";
 		CASE (PS) IS
@@ -1962,14 +1962,14 @@ ARCHITECTURE Exercise_8_13_arc OF Exercise_8_13 IS
 	TYPE STATE_TYPE IS (ST001,ST010,ST100);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		CS	<=	'0';
 		RD	<=	'0';
@@ -2029,14 +2029,14 @@ ARCHITECTURE Exercise_8_14_arc OF Exercise_8_14 IS
 	TYPE STATE_TYPE IS (ST001,ST010,ST100);
 	SIGNAL PS,NS	:	STATE_TYPE;
 BEGIN
-	sync_process:	PROCESS(CLK) IS
+	sync_process:	process(CLK) 
 	BEGIN
 		IF(RISING_EDGE(CLK)) THEN
 			PS	<=	NS;
 		END IF;
 	END PROCESS sync_process;
 
-	comb_process:	PROCESS(X,PS) IS
+	comb_process:	process(X,PS) 
 	BEGIN
 		Z	<=	"00";
 		CASE (PS) IS
@@ -2584,7 +2584,7 @@ END decoder1to2;
 
 ARCHITECTURE dec1to2 OF decoder1to2 IS
 BEGIN
-	output_process:	PROCESS (in1) IS
+	output_process:	process (in1) 
 	BEGIN
 		IF (in1 = '0') THEN
 			out0 <= '1';
@@ -2615,7 +2615,7 @@ END reg8;
 
 ARCHITECTURE reg OF reg8 IS
 BEGIN
-	load_process: PROCESS(CLK) IS
+	load_process: process(CLK) 
 	BEGIN
 		IF (RISING_EDGE(CLK)) THEN
 			IF (LD = '1') THEN

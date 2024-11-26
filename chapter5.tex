@@ -30,7 +30,7 @@ The main point to remember about the process statement is that its body is const
 
 \begin{lstlisting}[float, label=process_statement, caption=Syntax for the process statement.]
 -- this is my first process
-my_label: process(sensitivity_list) is
+my_label: process(sensitivity_list) 
    <item_declaration>
 begin
    <sequential_statements>
@@ -77,7 +77,7 @@ end my_xor;
 -- architecture
 architecture behav of my_xor is
 begin
-  xor_proc: process(A,B) is
+  xor_proc: process(A,B) 
   begin
 	F <= A XOR B;
   end process xor_proc;
@@ -103,7 +103,7 @@ end my_system;
 architecture behav of my_system is
 	signal A1 : std_logic;
 begin
-	some_proc: process(A,B,C) is
+	some_proc: process(A,B,C) 
 	  variable x,y : integer;
 	begin
 		x:=74;
@@ -181,7 +181,7 @@ end my_ex;
 -- architecture
 architecture silly_example of my_ex is
 begin
-	proc1: process(A,B,C) is
+	proc1: process(A,B,C) 
 	begin
 		if (A = '1' and B = '0' and C = '0') then
 	   		F_OUT <= '1';
